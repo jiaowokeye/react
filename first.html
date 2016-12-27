@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+
+</head>
+<body>
+<div id="wrap"></div>
+<script type="text/babel">
+    class Comp extends React.Component{
+        constructor(...args){
+            super(...args);
+            this.state={value:""};
+        }
+        fn(ev){
+            this.setState({"value":ev.target.value})
+        }
+        render(){
+            return <div>
+                <input type="text" onChange={this.fn.bind(this)}/>
+                <span>{this.state.value}</span>
+            </div>;
+        }
+    }
+    var oDiv=document.getElementById("wrap");
+    ReactDOM.render(<Comp/>,oDiv)
+</script>
+</body>
+</html>
