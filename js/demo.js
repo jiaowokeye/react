@@ -16,40 +16,22 @@ var Footer = React.createClass({
     //content
 var Content = React.createClass({
     render: function() {
-        return (
-            <div className="content">
-            <ContentLeft/>
-            <ContentMiddle/>
-            <ContentRight/>
-        </div>
-        )
+        return <div className="content">{this.props.children}</div>
     }
 })
 var ContentLeft = React.createClass({
     render: function() {
-        return <div className="content_left">content_left</div>
+        return <div className="content_left">{this.props.children}</div>
     }
 })
 var ContentRight = React.createClass({
     render: function() {
-        return <div className="content_right">content_right</div>
+        return <div className="content_right">{this.props.children}</div>
     }
 })
-var listData = ["商品1", "商品2", "商品3"];
 var ContentMiddle = React.createClass({
     render: function() {
-
-        return (
-            <div className="content_middle">
-                <ul>
-                {
-                    listData.map(function(ele,index){
-                        return <li key={index} >{ele}</li>
-                    })
-                }
-                </ul>
-            </div>
-        )
+        return  <div className="content_middle">{this.props.children}</div>
     }
 })
 
@@ -57,7 +39,13 @@ var IndexPage = React.createClass({
     render: function() {
         return <div className="page" id="index-page">
             <Header title="首页"/>
-            <Content />
+            <Content>
+                <ContentLeft>ContentLeft</ContentLeft>
+                <ContentMiddle>
+                    <span>1</span>
+                </ContentMiddle>
+                <ContentRight>ContentRight</ContentRight>
+            </Content>
             <Footer />
         </div>
     }

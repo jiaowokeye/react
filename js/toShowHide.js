@@ -4,16 +4,18 @@
 class Comp extends React.Component {
     constructor(...args) {
         super(...args);
-        this.state = {display:"block"};
+        this.state = {display:"block",title:"隐藏"};
     }
     fn(){
         console.log(this.state.display);
-        this.setState({display:this.state.display=this.state.display=="block"?"none":"block"})
+        this.setState({display:this.state.display=this.state.display=="block"?"none":"block",
+            title:this.state.title=this.state.display=="block"?"隐藏":"显示"
+        })
     }
     render() {
         return <div>
+            <button onClick={this.fn.bind(this)}>{this.state.title}</button>
             <div id="div1" style={{display:this.state.display}}></div>
-            <button onClick={this.fn.bind(this)}>点击</button>
         </div>
     }
 }

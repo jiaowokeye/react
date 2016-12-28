@@ -10,7 +10,7 @@ class Clock extends React.Component{
             _this.tick();
         },1000)
     }
-    componemtDidMount(){
+    componentDidMount(){
         this.tick();
     }
     getTwo(val){
