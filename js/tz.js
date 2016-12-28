@@ -31,3 +31,16 @@ ReactDOM.render(
     <Comp/>,
     oDiv
 );
+function show(){
+    return this.money
+}
+var person1={
+    money:100,
+    show:show
+}
+var person2={
+    money:150,
+    show:show
+}
+console.log(person1.show());
+console.log(person2.show());
