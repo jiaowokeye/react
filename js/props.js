@@ -18,7 +18,7 @@ class Page extends React.Component {
     }
     fnGetData(){
         var _this=this;
-        var url="http://datainfo.duapp.com/shopdata/getGoods.php?classID="+_this.state.value+"&callback=?";
+        var url="http://datainfo.duapp.com/shopdata/getGoods.php?classID="+(_this.state.value)+"&callback=?";
         console.log(url)
         $.getJSON(url,function(data){
             _this.setState({
@@ -31,8 +31,9 @@ class Page extends React.Component {
     }
 
     fnClick(index){
+
         this.setState({
-            value:index
+            value:index+1
         })
         this.fnGetData()
     }
